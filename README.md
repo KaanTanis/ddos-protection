@@ -22,15 +22,21 @@ server {
 
 ## acil durum
 # 1. Anında koruma için
-./emergency-protection.sh
+/usr/local/bin/emergency-protection.sh
 
 # 2. Cloudflare'i manual olarak Under Attack Mode'a al
 ./uam.sh force-uam
 
-# 3. Durumu kontrol et
-./ddos-status.sh
+# 🛠️ FAYDALI KOMUTLAR:
+- Durum kontrol: /usr/local/bin/ddos-status.sh
+- Acil koruma: /usr/local/bin/emergency-protection.sh
+- Fail2ban status: fail2ban-client status
+- UFW status: ufw status
+- Nginx test: nginx -t
 
 # 4. UAM scriptini 5 saniyede bir çalıştır
+```bash
 (crontab -l; echo "* * * * * /home/underattack/uam.sh check") | crontab -
 (crontab -l; echo "* * * * * sleep 5; /home/underattack/uam.sh check") | crontab -
 (crontab -l; echo "* * * * * sleep 10; /home/underattack/uam.sh check") | crontab -
+```
