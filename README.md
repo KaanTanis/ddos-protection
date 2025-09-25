@@ -6,7 +6,7 @@ mkdir -p /etc/iptables
 iptables-save > /etc/iptables/rules.v4
 
 # 3. Nginx site config'ini düzenle
-nano /etc/nginx/sites-available/default
+vim /etc/nginx/sites-available/default
 
 ## nginx settings
 ```bash
